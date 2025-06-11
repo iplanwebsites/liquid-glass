@@ -231,6 +231,12 @@ Contributions are welcome! Please feel free to submit a Pull Request.
   - Custom shader support
 - **More Browser Support**: Improve compatibility with Firefox and Safari, test mobile browsers
 
+## Inspirations and similar projects
+
+- Apple’s upcoming iOS 26 Liquid Glass desig
+- <a href="https://codepen.io/chakachuk/pen/QwbaYGO" rel="nofollow">chakachuk’s CodePen demo</a> for the original glass-distortion filter setup.
+- Liquid glass HTML experiment by @archisvaze: https://github.com/archisvaze/liquid-glass
+
 ## License
 
 MIT © fmenard
