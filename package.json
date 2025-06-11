@@ -1,18 +1,18 @@
 {
-  "name": "liquid-glass",
+  "name": "solid-glass",
   "version": "0.0.1",
-  "description": "A lightweight liquid glass effect library for web apps, supporting React and Vue.",
-  "homepage": "https://iplanwebsites.github.io/liquid-glass/",
+  "description": "A lightweight glass effect library for web apps, supporting React and Vue.",
+  "homepage": "https://iplanwebsites.github.io/solid-glass/",
   "repository": {
     "type": "git",
-    "url": "https://github.com/iplanwebsites/liquid-glass"
+    "url": "https://github.com/iplanwebsites/solid-glass"
   },
-  "main": "dist/liquid-glass.js",
-  "module": "dist/liquid-glass.esm.js",
+  "main": "dist/solid-glass.js",
+  "module": "dist/solid-glass.esm.js",
   "exports": {
     ".": {
-      "import": "./dist/liquid-glass.esm.js",
-      "require": "./dist/liquid-glass.js"
+      "import": "./dist/solid-glass.esm.js",
+      "require": "./dist/solid-glass.js"
     },
     "./vanilla": {
       "import": "./dist/vanilla.esm.js",

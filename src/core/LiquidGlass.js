@@ -30,7 +30,7 @@ export class LiquidGlass {
   }
   
   init() {
-    this.element.classList.add('liquid-glass');
+    this.element.classList.add('solid-glass');
     this.createSVGFilter();
     this.updateStyles();
   }
@@ -102,7 +102,7 @@ export class LiquidGlass {
   }
   
   destroy() {
-    this.element.classList.remove('liquid-glass');
+    this.element.classList.remove('solid-glass');
     const svg = document.getElementById(this.svgId)?.parentElement;
     if (svg) {
       svg.remove();

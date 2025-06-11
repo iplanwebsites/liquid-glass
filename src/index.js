@@ -7,4 +7,4 @@ export { default as LiquidGlassVue } from './vue/LiquidGlass.vue';
 export { LiquidGlassReact } from './react/LiquidGlass.jsx';
 
 // Import styles
-import './styles/liquid-glass.css';
+import './styles/solid-glass.css';

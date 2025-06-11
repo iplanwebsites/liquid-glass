@@ -1,10 +1,10 @@
-# Liquid Glass
+# Solid Glass
 
-A lightweight, customizable liquid glass effect library for modern web applications. Create Apple-like glass effects with dynamic distortion, customizable tints, and smooth animations.
+A lightweight, customizable solid glass effect library for modern web applications. Create Apple-like glass effects with dynamic distortion, customizable tints, and smooth animations.
 
-![Liquid Glass Demo](demo.png)
+![Solid Glass Demo](demo.png)
 
-🚀 **[Live Demo](https://iplanwebsites.github.io/liquid-glass/)**
+🚀 **[Live Demo](https://iplanwebsites.github.io/solid-glass/)**
 
 ## Features
 
@@ -16,13 +16,13 @@ A lightweight, customizable liquid glass effect library for modern web applicati
 ## Installation
 
 ```bash
-npm install liquid-glass
+npm install solid-glass
 ```
 
 Or with yarn:
 
 ```bash
-yarn add liquid-glass
+yarn add solid-glass
 ```
 
 ## Quick Start
@@ -30,11 +30,11 @@ yarn add liquid-glass
 ### Vanilla JavaScript
 
 ```javascript
-import { LiquidGlass } from "liquid-glass";
-import "liquid-glass/style.css";
+import { SolidGlass } from "solid-glass";
+import "solid-glass/style.css";
 
 const element = document.getElementById("my-glass-element");
-const glass = new LiquidGlass(element, {
+const glass = new SolidGlass(element, {
   tintColor: "255, 255, 255",
   tintOpacity: 0.05,
   frostBlur: 10,
@@ -46,12 +46,12 @@ const glass = new LiquidGlass(element, {
 ### React
 
 ```jsx
-import { LiquidGlassReact } from "liquid-glass/react";
-import "liquid-glass/style.css";
+import { SolidGlassReact } from "solid-glass/react";
+import "solid-glass/style.css";
 
 function App() {
   return (
-    <LiquidGlassReact
+    <SolidGlassReact
       width="400px"
       height="300px"
       tintColor="#ffffff"
@@ -59,7 +59,7 @@ function App() {
       frostBlur={10}
     >
       <h1>Your Content Here</h1>
-    </LiquidGlassReact>
+    </SolidGlassReact>
   );
 }
 ```
@@ -68,7 +68,7 @@ function App() {
 
 ```vue
 <template>
-  <LiquidGlass
+  <SolidGlass
     :tint-color="'#ffffff'"
     :tint-opacity="0.05"
     :frost-blur="10"
@@ -76,16 +76,16 @@ function App() {
     height="300px"
   >
     <h1>Your Content Here</h1>
-  </LiquidGlass>
+  </SolidGlass>
 </template>
 
 <script>
-import { LiquidGlassVue } from "liquid-glass/vue";
-import "liquid-glass/style.css";
+import { SolidGlassVue } from "solid-glass/vue";
+import "solid-glass/style.css";
 
 export default {
   components: {
-    LiquidGlass: LiquidGlassVue,
+    SolidGlass: SolidGlassVue,
   },
 };
 </script>
@@ -131,7 +131,7 @@ glass.destroy();
 ### Frosted Glass Effect
 
 ```javascript
-const frostedGlass = new LiquidGlass(element, {
+const frostedGlass = new SolidGlass(element, {
   tintColor: "255, 255, 255",
   tintOpacity: 0.1,
   frostBlur: 15,
@@ -143,7 +143,7 @@ const frostedGlass = new LiquidGlass(element, {
 ### Colored Crystal Effect
 
 ```javascript
-const crystalGlass = new LiquidGlass(element, {
+const crystalGlass = new SolidGlass(element, {
   tintColor: "0, 255, 255",
   tintOpacity: 0.05,
   frostBlur: 5,
@@ -156,7 +156,7 @@ const crystalGlass = new LiquidGlass(element, {
 ### Minimal Glass Effect
 
 ```javascript
-const minimalGlass = new LiquidGlass(element, {
+const minimalGlass = new SolidGlass(element, {
   tintOpacity: 0.02,
   frostBlur: 8,
   noiseFrequency: 0,
@@ -170,8 +170,8 @@ const minimalGlass = new LiquidGlass(element, {
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/liquid-glass.git
-cd liquid-glass
+git clone https://github.com/iplanwebsites/solid-glass.git
+cd solid-glass
 
 # Install dependencies
 npm install
@@ -193,7 +193,7 @@ npm run preview
 ### Project Structure
 
 ```
-liquid-glass/
+solid-glass/
 ├── src/
 │   ├── core/           # Core implementation
 │   ├── vanilla/        # Vanilla JS exports
@@ -206,11 +206,11 @@ liquid-glass/
 
 ## Browser Support
 
-- Chrome/Edge (okay)
-- Firefox (Nope)
-- Opera (okay)
-- Safari (Nope - blur works, but not the distortion)
-- Mobile browsers (untested)
+- Chrome/Edge ✅ (Full support)
+- Firefox ❌ (Not supported)
+- Opera ✅ (Full support)
+- Safari ⚠️ (Partial - blur works, but not the distortion)
+- Mobile browsers ❓ (Untested)
 
 ## Contributing
 
@@ -222,9 +222,18 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 4. Push to the branch (`git push origin feature/amazing-feature`)
 5. Open a Pull Request
 
+## TODO
+
+- **TypeScript Support**: Add comprehensive TypeScript definitions and type safety
+- **Better Choice of Shaders**: Expand beyond just noise for refraction with additional shader options like:
+  - Perlin noise variations
+  - Shape distortions
+  - Custom shader support
+- **More Browser Support**: Improve compatibility with Firefox and Safari, test mobile browsers
+
 ## License
 
-MIT © felix_m
+MIT © fmenard
 
 ## Credits
 

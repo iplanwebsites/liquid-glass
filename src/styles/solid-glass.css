@@ -1,9 +1,9 @@
-.liquid-glass {
+.solid-glass {
   position: relative;
   isolation: isolate;
 }
 
-.liquid-glass::before {
+.solid-glass::before {
   content: '';
   position: absolute;
   inset: 0;
@@ -13,7 +13,7 @@
   background-color: rgba(var(--lg-tint-color, 255, 255, 255), var(--lg-tint-opacity, 0.04));
 }
 
-.liquid-glass::after {
+.solid-glass::after {
   content: '';
   position: absolute;
   inset: 0;

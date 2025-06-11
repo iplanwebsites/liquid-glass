@@ -1,7 +1,7 @@
 <template>
   <div 
     ref="glassElement" 
-    class="liquid-glass-wrapper"
+    class="solid-glass-wrapper"
     :style="wrapperStyles"
   >
     <slot></slot>
@@ -117,7 +117,7 @@ export default {
 </script>
 
 <style scoped>
-.liquid-glass-wrapper {
+.solid-glass-wrapper {
   position: relative;
 }
 </style>

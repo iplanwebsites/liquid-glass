@@ -1,10 +1,10 @@
-import N, { useRef as l, useEffect as E } from "react";
-import { h as L, L as T } from "./utils-C7urrMG7.mjs";
+import T, { useRef as l, useEffect as E } from "react";
+import { h as L, L as $ } from "./utils-BuTN5SEH.mjs";
 const z = ({
   children: g,
   shadowColor: f = "rgba(255, 255, 255, 0.7)",
-  shadowBlur: t = 7,
-  shadowSpread: s = 0,
+  shadowBlur: s = 7,
+  shadowSpread: t = 0,
   shadowOffset: n = 0,
   tintColor: e = "#ffffff",
   tintOpacity: r = 0.04,
@@ -12,10 +12,10 @@ const z = ({
   noiseFrequency: m = 8e-3,
   distortionStrength: p = 77,
   borderRadius: x = 28,
-  width: i = "300px",
-  height: G = "200px",
-  className: W = "",
-  style: b = {},
+  width: G = "300px",
+  height: W = "200px",
+  className: b = "",
+  style: i = {},
   ...j
 }) => {
   const R = l(null), c = l(null);
@@ -23,8 +23,8 @@ const z = ({
     if (R.current) {
       const a = {
         shadowColor: f,
-        shadowBlur: t,
-        shadowSpread: s,
+        shadowBlur: s,
+        shadowSpread: t,
         shadowOffset: n,
         tintColor: e.startsWith("#") ? L(e) : e,
         tintOpacity: r,
@@ -33,7 +33,7 @@ const z = ({
         distortionStrength: p,
         borderRadius: x
       };
-      c.current = new T(R.current, a);
+      c.current = new $(R.current, a);
     }
     return () => {
       c.current && c.current.destroy();
@@ -42,8 +42,8 @@ const z = ({
     if (c.current) {
       const a = {
         shadowColor: f,
-        shadowBlur: t,
-        shadowSpread: s,
+        shadowBlur: s,
+        shadowSpread: t,
         shadowOffset: n,
         tintColor: e.startsWith("#") ? L(e) : e,
         tintOpacity: r,
@@ -52,16 +52,16 @@ const z = ({
         distortionStrength: p,
         borderRadius: x
       };
-      Object.entries(a).forEach(([q, v]) => {
-        c.current.updateOption(q, v);
+      Object.entries(a).forEach(([v, N]) => {
+        c.current.updateOption(v, N);
       });
     }
-  }, [f, t, s, n, e, r, u, m, p, x]), /* @__PURE__ */ N.createElement(
+  }, [f, s, t, n, e, r, u, m, p, x]), /* @__PURE__ */ T.createElement(
     "div",
     {
       ref: R,
-      className: `liquid-glass-wrapper ${W}`,
-      style: { width: i, height: G, ...b },
+      className: `solid-glass-wrapper ${b}`,
+      style: { width: G, height: W, ...i },
       ...j
     },
     g

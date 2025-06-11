@@ -8,7 +8,7 @@ export default defineConfig(({ mode }) => {
     return {
       plugins: [vue()],
       root: './demo',
-      base: '/liquid-glass/',
+      base: '/solid-glass/',
       resolve: {
         alias: {
           '@': resolve(__dirname, './src')
@@ -32,7 +32,7 @@ export default defineConfig(({ mode }) => {
     build: {
       lib: {
         entry: {
-          'liquid-glass': resolve(__dirname, 'src/index.js'),
+          'solid-glass': resolve(__dirname, 'src/index.js'),
           'vanilla': resolve(__dirname, 'src/vanilla/index.js'),
           'react': resolve(__dirname, 'src/react/LiquidGlass.jsx'),
           'vue': resolve(__dirname, 'src/vue/LiquidGlass.vue')

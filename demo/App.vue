@@ -1,7 +1,7 @@
 <script>
 import { ref, computed, onMounted } from "vue";
 import LiquidGlass from "../src/vue/LiquidGlass.vue";
-import "../src/styles/liquid-glass.css";
+import "../src/styles/solid-glass.css";
 
 export default {
   name: "App",
@@ -118,7 +118,7 @@ export default {
   <div id="app">
     <!-- Controls Panel -->
     <div class="controls">
-      <h2>Liquid Glass Controls</h2>
+      <h2>Solid Glass Controls</h2>
 
       <section>
         <h3>Inner Shadow</h3>
@@ -233,7 +233,7 @@ export default {
       class="demo-glass"
     >
       <div class="glass-content">
-        <h1>Liquid Glass</h1>
+        <h1>Solid Glass</h1>
         <p>Component Demo</p>
       </div>
     </LiquidGlass>

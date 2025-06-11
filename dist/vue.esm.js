@@ -1,9 +1,9 @@
-import { createElementBlock as i, openBlock as u, normalizeStyle as f, renderSlot as c, ref as h, computed as d, onMounted as y, onUnmounted as m, watch as w } from "vue";
-import { h as p, L as g } from "./utils-C7urrMG7.mjs";
+import { createElementBlock as i, openBlock as u, normalizeStyle as f, renderSlot as c, ref as h, computed as s, onMounted as y, onUnmounted as m, watch as w } from "vue";
+import { h as p, L as g } from "./utils-BuTN5SEH.mjs";
 const b = (t, r) => {
   const e = t.__vccOpts || t;
-  for (const [a, o] of r)
-    e[a] = o;
+  for (const [o, a] of r)
+    e[o] = a;
   return e;
 }, S = {
   name: "LiquidGlass",
@@ -60,10 +60,10 @@ const b = (t, r) => {
   setup(t) {
     const r = h(null);
     let e = null;
-    const a = d(() => ({
+    const o = s(() => ({
       width: t.width,
       height: t.height
-    })), o = d(() => ({
+    })), a = s(() => ({
       shadowColor: t.shadowColor,
       shadowBlur: t.shadowBlur,
       shadowSpread: t.shadowSpread,
@@ -76,29 +76,29 @@ const b = (t, r) => {
       borderRadius: t.borderRadius
     }));
     return y(() => {
-      r.value && (e = new g(r.value, o.value));
+      r.value && (e = new g(r.value, a.value));
     }), m(() => {
       e && e.destroy();
-    }), w(o, (n) => {
-      e && Object.entries(n).forEach(([s, l]) => {
-        e.updateOption(s, l);
+    }), w(a, (n) => {
+      e && Object.entries(n).forEach(([d, l]) => {
+        e.updateOption(d, l);
       });
     }, { deep: !0 }), {
       glassElement: r,
-      wrapperStyles: a
+      wrapperStyles: o
     };
   }
 };
-function _(t, r, e, a, o, n) {
+function _(t, r, e, o, a, n) {
   return u(), i("div", {
     ref: "glassElement",
-    class: "liquid-glass-wrapper",
-    style: f(a.wrapperStyles)
+    class: "solid-glass-wrapper",
+    style: f(o.wrapperStyles)
   }, [
     c(t.$slots, "default", {}, void 0, !0)
   ], 4);
 }
-const C = /* @__PURE__ */ b(S, [["render", _], ["__scopeId", "data-v-1be1f538"]]);
+const C = /* @__PURE__ */ b(S, [["render", _], ["__scopeId", "data-v-6eef1c7e"]]);
 export {
   C as default
 };

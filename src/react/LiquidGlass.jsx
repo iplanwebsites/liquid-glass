@@ -73,7 +73,7 @@ export const LiquidGlassReact = ({
   return (
     <div 
       ref={elementRef}
-      className={`liquid-glass-wrapper ${className}`}
+      className={`solid-glass-wrapper ${className}`}
       style={{ width, height, ...style }}
       {...props}
     >

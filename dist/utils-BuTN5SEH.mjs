@@ -20,7 +20,7 @@ class o {
     }, this.svgId = `glass-distortion-${Math.random().toString(36).substr(2, 9)}`, this.init();
   }
   init() {
-    this.element.classList.add("liquid-glass"), this.createSVGFilter(), this.updateStyles();
+    this.element.classList.add("solid-glass"), this.createSVGFilter(), this.updateStyles();
   }
   createSVGFilter() {
     if (!document.getElementById(this.svgId)) {
@@ -64,7 +64,7 @@ class o {
   }
   destroy() {
     var e;
-    this.element.classList.remove("liquid-glass");
+    this.element.classList.remove("solid-glass");
     const t = (e = document.getElementById(this.svgId)) == null ? void 0 : e.parentElement;
     t && t.remove();
   }
