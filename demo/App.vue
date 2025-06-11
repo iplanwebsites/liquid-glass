@@ -234,7 +234,7 @@ export default {
     >
       <div class="glass-content">
         <h1>Liquid Glass</h1>
-        <p>Vue Component Demo</p>
+        <p>Component Demo</p>
       </div>
     </LiquidGlass>
 

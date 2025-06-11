@@ -2,15 +2,15 @@
 
 A lightweight, customizable liquid glass effect library for modern web applications. Create Apple-like glass effects with dynamic distortion, customizable tints, and smooth animations.
 
-![Liquid Glass Demo](https://via.placeholder.com/800x400?text=Liquid+Glass+Demo)
+![Liquid Glass Demo](demo.png)
+
+🚀 **[Live Demo](https://iplanwebsites.github.io/liquid-glass/)**
 
 ## Features
 
 - 🎨 **Fully Customizable**: Control every aspect of the glass effect
 - 🚀 **Lightweight**: Minimal dependencies, optimized performance
 - 🔧 **Framework Agnostic**: Works with vanilla JS, React, and Vue
-- 📱 **Responsive**: Adapts to any screen size
-- 🎯 **TypeScript Support**: Full type definitions included
 - 🌈 **Dynamic Effects**: Real-time noise distortion and frost effects
 
 ## Installation
@@ -206,10 +206,11 @@ liquid-glass/
 
 ## Browser Support
 
-- Chrome/Edge (latest)
-- Firefox (latest)
-- Safari (latest)
-- Mobile browsers with backdrop-filter support
+- Chrome/Edge (okay)
+- Firefox (Nope)
+- Opera (okay)
+- Safari (Nope - blur works, but not the distortion)
+- Mobile browsers (untested)
 
 ## Contributing
 

@@ -1,8 +1,8 @@
 {
   "name": "liquid-glass",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "A lightweight liquid glass effect library for web apps, supporting React and Vue.",
-  "homepage": "https://github.com/iplanwebsites/liquid-glass",
+  "homepage": "https://iplanwebsites.github.io/liquid-glass/",
   "repository": {
     "type": "git",
     "url": "https://github.com/iplanwebsites/liquid-glass"
