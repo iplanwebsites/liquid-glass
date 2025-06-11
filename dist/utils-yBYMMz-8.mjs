@@ -1,4 +1,7 @@
-class o {
+var l = Object.defineProperty;
+var a = (s, t, e) => t in s ? l(s, t, { enumerable: !0, configurable: !0, writable: !0, value: e }) : s[t] = e;
+var n = (s, t, e) => a(s, typeof t != "symbol" ? t + "" : t, e);
+const i = class i {
   constructor(t, e = {}) {
     this.element = t, this.options = {
       // Inner shadow
@@ -17,10 +20,10 @@ class o {
       // Shape
       borderRadius: 28,
       ...e
-    }, this.svgId = `glass-distortion-${Math.random().toString(36).substr(2, 9)}`, this.init();
+    }, this.svgId = `glass-distortion-${Math.random().toString(36).substr(2, 9)}`, i.shouldUseAlternativeFallback === void 0 && (i.shouldUseAlternativeFallback = navigator.userAgent.toLowerCase().indexOf("firefox") > -1), this.init();
   }
   init() {
-    this.element.classList.add("solid-glass"), this.createSVGFilter(), this.updateStyles();
+    i.shouldUseAlternativeFallback ? this.element.classList.add("solid-glass-alternative") : (this.element.classList.add("solid-glass"), this.createSVGFilter()), this.updateStyles();
   }
   createSVGFilter() {
     if (!document.getElementById(this.svgId)) {
@@ -48,8 +51,8 @@ class o {
       "--lg-border-radius": `${this.options.borderRadius}px`,
       "--lg-filter-id": `url(#${this.svgId})`
     };
-    Object.entries(t).forEach(([e, i]) => {
-      this.element.style.setProperty(e, i);
+    Object.entries(t).forEach(([e, o]) => {
+      this.element.style.setProperty(e, o);
     });
   }
   updateOption(t, e) {
@@ -58,26 +61,28 @@ class o {
   updateSVGFilter() {
     const t = document.getElementById(this.svgId);
     if (t) {
-      const e = t.querySelector("feTurbulence"), i = t.querySelector("feDisplacementMap");
-      e && e.setAttribute("baseFrequency", `${this.options.noiseFrequency} ${this.options.noiseFrequency}`), i && i.setAttribute("scale", this.options.distortionStrength);
+      const e = t.querySelector("feTurbulence"), o = t.querySelector("feDisplacementMap");
+      e && e.setAttribute("baseFrequency", `${this.options.noiseFrequency} ${this.options.noiseFrequency}`), o && o.setAttribute("scale", this.options.distortionStrength);
     }
   }
   destroy() {
     var e;
-    this.element.classList.remove("solid-glass");
+    this.element.classList.remove("solid-glass", "solid-glass-alternative");
     const t = (e = document.getElementById(this.svgId)) == null ? void 0 : e.parentElement;
     t && t.remove();
   }
-}
-function r(s) {
+};
+n(i, "shouldUseAlternativeFallback");
+let r = i;
+function h(s) {
   const t = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(s);
   return t ? `${parseInt(t[1], 16)}, ${parseInt(t[2], 16)}, ${parseInt(t[3], 16)}` : "255, 255, 255";
 }
-function n(s) {
+function c(s) {
   return "#" + s.split(",").map((e) => parseInt(e.trim())).map((e) => e.toString(16).padStart(2, "0")).join("");
 }
 export {
-  o as L,
-  r as h,
-  n as r
+  r as L,
+  h,
+  c as r
 };

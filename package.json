@@ -30,6 +30,7 @@
   },
   "scripts": {
     "dev": "vite",
+    "dev:demo": "vite --mode demo",
     "build": "vite build",
     "build:demo": "vite build --mode demo",
     "preview": "vite preview"

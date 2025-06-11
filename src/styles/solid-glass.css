@@ -25,3 +25,26 @@
   -webkit-filter: var(--lg-filter-id);
   isolation: isolate;
 }
+
+.solid-glass-alternative {
+  position: relative;
+  isolation: isolate;
+  backdrop-filter: blur(var(--lg-frost-blur, 2px));
+  -webkit-backdrop-filter: blur(var(--lg-frost-blur, 2px));
+  border-radius: var(--lg-border-radius, 28px);
+}
+
+.solid-glass-alternative::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  border-radius: var(--lg-border-radius, 28px);
+  box-shadow: inset var(--lg-shadow-offset, 0) var(--lg-shadow-offset, 0)
+    calc(var(--lg-shadow-blur, 7px) / 2) var(--lg-shadow-spread, 0px)
+    var(--lg-shadow-color, rgba(255, 255, 255, 0.7));
+  background-color: rgba(
+    var(--lg-tint-color, 255, 255, 255),
+    var(--lg-tint-opacity, 0.04)
+  );
+}
