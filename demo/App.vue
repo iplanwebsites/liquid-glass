@@ -447,3 +447,4 @@ body {
 .controls::-webkit-scrollbar-thumb:hover {
   background: rgba(255, 255, 255, 0.5);
 }
+</style>

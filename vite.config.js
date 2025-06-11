@@ -1,17 +1,22 @@
-import { defineConfig } from 'vite'
-import vue from '@vitejs/plugin-vue'
+import { defineConfig } from 'vite';
+import vue from '@vitejs/plugin-vue';
+import { resolve } from 'path';
 
 export default defineConfig({
   plugins: [vue()],
+  resolve: {
+    alias: {
+      '@': resolve(__dirname, './src')
+    }
+  },
   build: {
     lib: {
       entry: {
-        'liquid-glass': 'src/index.js',
-        'vanilla': 'src/vanilla/index.js',
-        'react': 'src/react/LiquidGlass.jsx',
-        'vue': 'src/vue/LiquidGlass.vue'
+        'liquid-glass': resolve(__dirname, 'src/index.js'),
+        'vanilla': resolve(__dirname, 'src/vanilla/index.js'),
+        'react': resolve(__dirname, 'src/react/LiquidGlass.jsx'),
+        'vue': resolve(__dirname, 'src/vue/LiquidGlass.vue')
       },
-      name: 'LiquidGlass',
       formats: ['es', 'cjs']
     },
     rollupOptions: {
@@ -29,4 +34,4 @@ export default defineConfig({
       }
     }
   }
-})
+});
