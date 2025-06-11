@@ -1,10 +1,125 @@
-<!-- demo/App.vue -->
+<script>
+import { ref, computed, onMounted } from "vue";
+import LiquidGlass from "../src/vue/LiquidGlass.vue";
+import "../src/styles/liquid-glass.css";
+
+export default {
+  name: "App",
+  components: {
+    LiquidGlass,
+  },
+  setup() {
+    // Reactive state
+    const shadowColorHex = ref("#ffffff");
+    const shadowBlur = ref(7);
+    const shadowSpread = ref(0);
+    const tintColor = ref("#ffffff");
+    const tintOpacity = ref(0.04);
+    const frostBlur = ref(2);
+    const noiseFrequency = ref(0.008);
+    const distortionStrength = ref(77);
+    const borderRadius = ref(28);
+    const backgroundUrl = ref("");
+    const glassWidth = ref("300px");
+    const glassHeight = ref("200px");
+
+    // Computed shadow color with opacity
+    const shadowColor = computed(() => {
+      const r = parseInt(shadowColorHex.value.slice(1, 3), 16);
+      const g = parseInt(shadowColorHex.value.slice(3, 5), 16);
+      const b = parseInt(shadowColorHex.value.slice(5, 7), 16);
+      return `rgba(${r}, ${g}, ${b}, 0.7)`;
+    });
+
+    // Preset configurations
+    const presets = ref([
+      {
+        name: "Frosted",
+        tintColor: "#ffffff",
+        tintOpacity: 0.1,
+        frostBlur: 10,
+        noiseFrequency: 0.005,
+        distortionStrength: 50,
+        width: "200px",
+        height: "150px",
+      },
+      {
+        name: "Crystal",
+        tintColor: "#00ffff",
+        tintOpacity: 0.05,
+        frostBlur: 5,
+        noiseFrequency: 0.015,
+        distortionStrength: 100,
+        width: "200px",
+        height: "150px",
+      },
+      {
+        name: "Amber",
+        tintColor: "#ff8800",
+        tintOpacity: 0.08,
+        frostBlur: 3,
+        noiseFrequency: 0.01,
+        distortionStrength: 60,
+        width: "200px",
+        height: "150px",
+      },
+    ]);
+
+    // Background presets
+    const backgroundPresets = {
+      nature:
+        "https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?q=80&w=2000&auto=format&fit=crop",
+      abstract:
+        "https://images.unsplash.com/photo-1618005198919-d3d4b5a92ead?q=80&w=2000&auto=format&fit=crop",
+      city: "https://images.unsplash.com/photo-1514565131-fce0801e5785?q=80&w=2000&auto=format&fit=crop",
+    };
+
+    // Methods
+    const updateBackground = () => {
+      if (backgroundUrl.value) {
+        document.body.style.backgroundImage = `url('${backgroundUrl.value}')`;
+      }
+    };
+
+    const setPresetBackground = (preset) => {
+      backgroundUrl.value = backgroundPresets[preset];
+      updateBackground();
+    };
+
+    // Set initial background
+    onMounted(() => {
+      backgroundUrl.value = backgroundPresets.nature;
+      updateBackground();
+    });
+
+    return {
+      shadowColorHex,
+      shadowColor,
+      shadowBlur,
+      shadowSpread,
+      tintColor,
+      tintOpacity,
+      frostBlur,
+      noiseFrequency,
+      distortionStrength,
+      borderRadius,
+      backgroundUrl,
+      glassWidth,
+      glassHeight,
+      presets,
+      updateBackground,
+      setPresetBackground,
+    };
+  },
+};
+</script>
+
 <template>
   <div id="app">
     <!-- Controls Panel -->
     <div class="controls">
       <h2>Liquid Glass Controls</h2>
-      
+
       <section>
         <h3>Inner Shadow</h3>
         <label>
@@ -17,10 +132,15 @@
         </label>
         <label>
           <span>Spread: {{ shadowSpread }}px</span>
-          <input type="range" v-model.number="shadowSpread" min="-10" max="10" />
+          <input
+            type="range"
+            v-model.number="shadowSpread"
+            min="-10"
+            max="10"
+          />
         </label>
       </section>
-      
+
       <section>
         <h3>Glass Tint</h3>
         <label>
@@ -29,10 +149,16 @@
         </label>
         <label>
           <span>Opacity: {{ Math.round(tintOpacity * 100) }}%</span>
-          <input type="range" v-model.number="tintOpacity" min="0" max="1" step="0.01" />
+          <input
+            type="range"
+            v-model.number="tintOpacity"
+            min="0"
+            max="1"
+            step="0.01"
+          />
         </label>
       </section>
-      
+
       <section>
         <h3>Frost Blur</h3>
         <label>
@@ -40,19 +166,30 @@
           <input type="range" v-model.number="frostBlur" min="0" max="30" />
         </label>
       </section>
-      
+
       <section>
         <h3>Noise Distortion</h3>
         <label>
           <span>Frequency: {{ noiseFrequency.toFixed(3) }}</span>
-          <input type="range" v-model.number="noiseFrequency" min="0" max="0.02" step="0.001" />
+          <input
+            type="range"
+            v-model.number="noiseFrequency"
+            min="0"
+            max="0.02"
+            step="0.001"
+          />
         </label>
         <label>
           <span>Strength: {{ distortionStrength }}</span>
-          <input type="range" v-model.number="distortionStrength" min="0" max="200" />
+          <input
+            type="range"
+            v-model.number="distortionStrength"
+            min="0"
+            max="200"
+          />
         </label>
       </section>
-      
+
       <section>
         <h3>Shape</h3>
         <label>
@@ -60,14 +197,14 @@
           <input type="range" v-model.number="borderRadius" min="0" max="50" />
         </label>
       </section>
-      
+
       <section>
         <h3>Background</h3>
         <label>
           <span>Image URL:</span>
-          <input 
-            type="text" 
-            v-model="backgroundUrl" 
+          <input
+            type="text"
+            v-model="backgroundUrl"
             placeholder="https://..."
             @input="updateBackground"
           />
@@ -79,7 +216,7 @@
         </div>
       </section>
     </div>
-    
+
     <!-- Liquid Glass Component -->
     <LiquidGlass
       :shadow-color="shadowColor"
@@ -100,7 +237,7 @@
         <p>Vue Component Demo</p>
       </div>
     </LiquidGlass>
-    
+
     <!-- Multiple instances showcase -->
     <div class="showcase">
       <LiquidGlass
@@ -117,120 +254,6 @@
   </div>
 </template>
 
-<script>
-import { ref, computed, onMounted } from 'vue';
-import LiquidGlass from '../src/vue/LiquidGlass.vue';
-import '../src/styles/liquid-glass.css';
-
-export default {
-  name: 'App',
-  components: {
-    LiquidGlass
-  },
-  setup() {
-    // Reactive state
-    const shadowColorHex = ref('#ffffff');
-    const shadowBlur = ref(7);
-    const shadowSpread = ref(0);
-    const tintColor = ref('#ffffff');
-    const tintOpacity = ref(0.04);
-    const frostBlur = ref(2);
-    const noiseFrequency = ref(0.008);
-    const distortionStrength = ref(77);
-    const borderRadius = ref(28);
-    const backgroundUrl = ref('');
-    const glassWidth = ref('300px');
-    const glassHeight = ref('200px');
-    
-    // Computed shadow color with opacity
-    const shadowColor = computed(() => {
-      const r = parseInt(shadowColorHex.value.slice(1, 3), 16);
-      const g = parseInt(shadowColorHex.value.slice(3, 5), 16);
-      const b = parseInt(shadowColorHex.value.slice(5, 7), 16);
-      return `rgba(${r}, ${g}, ${b}, 0.7)`;
-    });
-    
-    // Preset configurations
-    const presets = ref([
-      {
-        name: 'Frosted',
-        tintColor: '#ffffff',
-        tintOpacity: 0.1,
-        frostBlur: 10,
-        noiseFrequency: 0.005,
-        distortionStrength: 50,
-        width: '200px',
-        height: '150px'
-      },
-      {
-        name: 'Crystal',
-        tintColor: '#00ffff',
-        tintOpacity: 0.05,
-        frostBlur: 5,
-        noiseFrequency: 0.015,
-        distortionStrength: 100,
-        width: '200px',
-        height: '150px'
-      },
-      {
-        name: 'Amber',
-        tintColor: '#ff8800',
-        tintOpacity: 0.08,
-        frostBlur: 3,
-        noiseFrequency: 0.01,
-        distortionStrength: 60,
-        width: '200px',
-        height: '150px'
-      }
-    ]);
-    
-    // Background presets
-    const backgroundPresets = {
-      nature: 'https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?q=80&w=2000&auto=format&fit=crop',
-      abstract: 'https://images.unsplash.com/photo-1618005198919-d3d4b5a92ead?q=80&w=2000&auto=format&fit=crop',
-      city: 'https://images.unsplash.com/photo-1514565131-fce0801e5785?q=80&w=2000&auto=format&fit=crop'
-    };
-    
-    // Methods
-    const updateBackground = () => {
-      if (backgroundUrl.value) {
-        document.body.style.backgroundImage = `url('${backgroundUrl.value}')`;
-      }
-    };
-    
-    const setPresetBackground = (preset) => {
-      backgroundUrl.value = backgroundPresets[preset];
-      updateBackground();
-    };
-    
-    // Set initial background
-    onMounted(() => {
-      backgroundUrl.value = backgroundPresets.nature;
-      updateBackground();
-    });
-    
-    return {
-      shadowColorHex,
-      shadowColor,
-      shadowBlur,
-      shadowSpread,
-      tintColor,
-      tintOpacity,
-      frostBlur,
-      noiseFrequency,
-      distortionStrength,
-      borderRadius,
-      backgroundUrl,
-      glassWidth,
-      glassHeight,
-      presets,
-      updateBackground,
-      setPresetBackground
-    };
-  }
-};
-</script>
-
 <style>
 /* Reset and base styles */
 * {
@@ -241,7 +264,7 @@ export default {
 
 body {
   min-height: 100vh;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
@@ -422,7 +445,7 @@ body {
     max-width: 400px;
     margin-bottom: 40px;
   }
-  
+
   .showcase {
     flex-direction: column;
     align-items: center;

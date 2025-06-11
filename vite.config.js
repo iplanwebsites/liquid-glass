@@ -15,8 +15,8 @@ export default defineConfig(({ mode }) => {
         }
       },
       build: {
-        outDir: '../dist',
-        emptyOutDir: true
+        outDir: '../dist/demo',
+        emptyOutDir: false
       }
     };
   }
@@ -37,7 +37,11 @@ export default defineConfig(({ mode }) => {
           'react': resolve(__dirname, 'src/react/LiquidGlass.jsx'),
           'vue': resolve(__dirname, 'src/vue/LiquidGlass.vue')
         },
-        formats: ['es', 'cjs']
+        formats: ['es', 'cjs'],
+        fileName: (format, entryName) => {
+          if (format === 'es') return `${entryName}.esm.js`;
+          return `${entryName}.js`;
+        }
       },
       rollupOptions: {
         external: ['vue', 'react', 'react-dom'],
