@@ -1,0 +1,64 @@
+{
+  "name": "liquid-glass",
+  "version": "1.0.0",
+  "description": "A lightweight liquid glass effect library for web applications",
+  "main": "dist/liquid-glass.js",
+  "module": "dist/liquid-glass.esm.js",
+  "exports": {
+    ".": {
+      "import": "./dist/liquid-glass.esm.js",
+      "require": "./dist/liquid-glass.js"
+    },
+    "./vanilla": {
+      "import": "./dist/vanilla.esm.js",
+      "require": "./dist/vanilla.js"
+    },
+    "./react": {
+      "import": "./dist/react.esm.js",
+      "require": "./dist/react.js"
+    },
+    "./vue": {
+      "import": "./dist/vue.esm.js",
+      "require": "./dist/vue.js"
+    },
+    "./style.css": "./dist/style.css"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "keywords": [
+    "glass",
+    "glassmorphism",
+    "liquid",
+    "effect",
+    "ui",
+    "react",
+    "vue",
+    "component"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^5.0.4",
+    "vite": "^5.2.0",
+    "vue": "^3.4.21"
+  },
+  "peerDependencies": {
+    "react": ">=16.8.0",
+    "react-dom": ">=16.8.0",
+    "vue": ">=3.0.0"
+  },
+  "peerDependenciesMeta": {
+    "react": {
+      "optional": true
+    },
+    "react-dom": {
+      "optional": true
+    },
+    "vue": {
+      "optional": true
+    }
+  }
+}
