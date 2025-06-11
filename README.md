@@ -1,6 +1,6 @@
 # Liquid Glass
 
-A lightweight, customizable liquid glass effect library for modern web applications. Create stunning glassmorphism effects with dynamic distortion, customizable tints, and smooth animations.
+A lightweight, customizable liquid glass effect library for modern web applications. Create Apple-like glass effects with dynamic distortion, customizable tints, and smooth animations.
 
 ![Liquid Glass Demo](https://via.placeholder.com/800x400?text=Liquid+Glass+Demo)
 
@@ -228,3 +228,5 @@ MIT © felix_m
 ## Credits
 
 Inspired by Apple new UI design and the beauty of light refraction in nature.
+
+Note: This npm module is NOT affiliated with Apple in any ways

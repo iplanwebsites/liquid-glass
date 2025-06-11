@@ -2,36 +2,57 @@ import { defineConfig } from 'vite';
 import vue from '@vitejs/plugin-vue';
 import { resolve } from 'path';
 
-export default defineConfig({
-  plugins: [vue()],
-  resolve: {
-    alias: {
-      '@': resolve(__dirname, './src')
-    }
-  },
-  build: {
-    lib: {
-      entry: {
-        'liquid-glass': resolve(__dirname, 'src/index.js'),
-        'vanilla': resolve(__dirname, 'src/vanilla/index.js'),
-        'react': resolve(__dirname, 'src/react/LiquidGlass.jsx'),
-        'vue': resolve(__dirname, 'src/vue/LiquidGlass.vue')
+export default defineConfig(({ mode }) => {
+  if (mode === 'demo') {
+    // Demo build configuration
+    return {
+      plugins: [vue()],
+      root: './demo',
+      base: '/liquid-glass/',
+      resolve: {
+        alias: {
+          '@': resolve(__dirname, './src')
+        }
       },
-      formats: ['es', 'cjs']
+      build: {
+        outDir: '../dist',
+        emptyOutDir: true
+      }
+    };
+  }
+  
+  // Library build configuration
+  return {
+    plugins: [vue()],
+    resolve: {
+      alias: {
+        '@': resolve(__dirname, './src')
+      }
     },
-    rollupOptions: {
-      external: ['vue', 'react', 'react-dom'],
-      output: {
-        globals: {
-          vue: 'Vue',
-          react: 'React',
-          'react-dom': 'ReactDOM'
+    build: {
+      lib: {
+        entry: {
+          'liquid-glass': resolve(__dirname, 'src/index.js'),
+          'vanilla': resolve(__dirname, 'src/vanilla/index.js'),
+          'react': resolve(__dirname, 'src/react/LiquidGlass.jsx'),
+          'vue': resolve(__dirname, 'src/vue/LiquidGlass.vue')
         },
-        assetFileNames: (assetInfo) => {
-          if (assetInfo.name === 'style.css') return 'style.css';
-          return assetInfo.name;
+        formats: ['es', 'cjs']
+      },
+      rollupOptions: {
+        external: ['vue', 'react', 'react-dom'],
+        output: {
+          globals: {
+            vue: 'Vue',
+            react: 'React',
+            'react-dom': 'ReactDOM'
+          },
+          assetFileNames: (assetInfo) => {
+            if (assetInfo.name === 'style.css') return 'style.css';
+            return assetInfo.name;
+          }
         }
       }
     }
-  }
+  };
 });
