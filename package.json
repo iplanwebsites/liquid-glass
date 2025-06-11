@@ -1,7 +1,12 @@
 {
   "name": "liquid-glass",
   "version": "1.0.0",
-  "description": "A lightweight liquid glass effect library for web applications",
+  "description": "A lightweight liquid glass effect library for web apps, supporting React and Vue.",
+  "homepage": "https://github.com/iplanwebsites/liquid-glass",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/iplanwebsites/liquid-glass"
+  },
   "main": "dist/liquid-glass.js",
   "module": "dist/liquid-glass.esm.js",
   "exports": {
@@ -38,7 +43,7 @@
     "vue",
     "component"
   ],
-  "author": "",
+  "author": "felix_m",
   "license": "MIT",
   "devDependencies": {
     "@vitejs/plugin-vue": "^5.0.4",
