@@ -1,4 +1,6 @@
 export class LiquidGlass {
+  static shouldUseAlternativeFallback;
+  
   constructor(element, options = {}) {
     this.element = element;
     this.options = {
@@ -26,12 +28,22 @@ export class LiquidGlass {
     };
     
     this.svgId = `glass-distortion-${Math.random().toString(36).substr(2, 9)}`;
+
+    if (LiquidGlass.shouldUseAlternativeFallback === undefined) {
+      LiquidGlass.shouldUseAlternativeFallback = navigator.userAgent.toLowerCase().indexOf('firefox') > -1;
+    }
+
     this.init();
   }
   
   init() {
-    this.element.classList.add('solid-glass');
-    this.createSVGFilter();
+    if (LiquidGlass.shouldUseAlternativeFallback) {
+      this.element.classList.add('solid-glass-alternative');
+    } else {
+      this.element.classList.add('solid-glass');
+      this.createSVGFilter();
+    }
+    
     this.updateStyles();
   }
   
@@ -102,7 +114,7 @@ export class LiquidGlass {
   }
   
   destroy() {
-    this.element.classList.remove('solid-glass');
+    this.element.classList.remove('solid-glass', 'solid-glass-alternative');
     const svg = document.getElementById(this.svgId)?.parentElement;
     if (svg) {
       svg.remove();
