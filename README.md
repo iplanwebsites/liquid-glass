@@ -2,7 +2,7 @@
 
 A lightweight, customizable solid glass effect library for modern web applications. Create Apple-like glass effects with dynamic distortion, customizable tints, and smooth animations.
 
-![Solid Glass Demo](demo.png)
+![Solid Glass Demo](https://github.com/iplanwebsites/solid-glass/blob/main/demo/demo.png?raw=true)
 
 🚀 **[Live Demo](https://iplanwebsites.github.io/solid-glass/)**
 
