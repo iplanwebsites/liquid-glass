@@ -1,11 +1,11 @@
 {
   "name": "solid-glass",
-  "version": "0.0.3",
-  "description": "A lightweight glass effect library for web apps, supporting React and Vue.",
+  "version": "0.0.4",
+  "description": "A lightweight glass effect library for web apps, supporting React, Vue and plain JS.",
   "homepage": "https://iplanwebsites.github.io/solid-glass/",
   "repository": {
     "type": "git",
-    "url": "https://github.com/iplanwebsites/solid-glass"
+    "url": "git+https://github.com/iplanwebsites/solid-glass.git"
   },
   "main": "dist/solid-glass.js",
   "module": "dist/solid-glass.esm.js",
@@ -32,7 +32,10 @@
     "dev": "vite",
     "build": "vite build",
     "build:demo": "vite build --mode demo",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "dry": "npm publish --dry-run",
+    "prepublish": " npm run build ",
+    "publish": "   npm publish && npm version patch"
   },
   "keywords": [
     "glass",

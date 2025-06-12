@@ -207,7 +207,7 @@ solid-glass/
 ## Browser Support
 
 - Chrome/Edge ✅ (Full support)
-- Firefox ❌ (Not supported)
+- Firefox ⚠️ (Not supported, but fallback to basicBlur mode)
 - Opera ✅ (Full support)
 - Safari ⚠️ (Partial - blur works, but not the distortion)
 - Mobile browsers ❓ (Untested)
@@ -229,6 +229,7 @@ Contributions are welcome! Please feel free to submit a Pull Request.
   - Perlin noise variations
   - Shape distortions
   - Custom shader support
+- Better fallback logic for browser with limited support
 - **More Browser Support**: Improve compatibility with Firefox and Safari, test mobile browsers
 
 ## Inspirations and similar projects

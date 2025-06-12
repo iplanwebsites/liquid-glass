@@ -1,4 +1,4 @@
 node_modules/
 .claude
 DEV.md
-dist/
+dist
